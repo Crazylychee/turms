@@ -58,7 +58,7 @@ x-logging-turms: &logging-turms
 services:
   # MongoDB
   mongodb-config:
-    image: mongo:6.0.13-jammy
+    image: mongo:6.0.14-jammy
 #    depends_on:
 #      - loki
     entrypoint: [ "mongod", "--port", "27017", "--configsvr", "--replSet", "rs-config", "--bind_ip_all" ]
@@ -75,7 +75,7 @@ services:
 #    <<: *logging-mongo
 
   mongodb-shard:
-    image: mongo:6.0.13-jammy
+    image: mongo:6.0.14-jammy
 #    depends_on:
 #      - loki
     entrypoint: [ "mongod", "--port", "27017", "--shardsvr", "--replSet", "shard01", "--bind_ip_all" ]
@@ -92,7 +92,7 @@ services:
 #    <<: *logging-mongo
 
   mongodb-router:
-    image: mongo:6.0.13-jammy
+    image: mongo:6.0.14-jammy
 #    depends_on:
 #      - loki
     entrypoint: [ "mongos", "--port", "27017", "--configdb", "rs-config/mongodb-config:27017", "--bind_ip_all" ]
@@ -111,7 +111,7 @@ services:
 #    <<: *logging-mongo
 
   mongodb-setup:
-    image: mongo:6.0.13-jammy
+    image: mongo:6.0.14-jammy
     depends_on:
       mongodb-config:
         condition: service_healthy

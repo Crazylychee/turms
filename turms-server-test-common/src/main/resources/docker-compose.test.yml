@@ -3,7 +3,7 @@
 services:
   # MongoDB
   mongodb-router:
-    image: "bitnami/mongodb-sharded:6.0.13"
+    image: "bitnami/mongodb-sharded:6.0.14"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=mongodb-router
       - MONGODB_SHARDING_MODE=mongos
@@ -19,7 +19,7 @@ services:
       retries: 5
 
   mongodb-shard:
-    image: "bitnami/mongodb-sharded:6.0.13"
+    image: "bitnami/mongodb-sharded:6.0.14"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=mongodb-shard
       - MONGODB_SHARDING_MODE=shardsvr
@@ -30,7 +30,7 @@ services:
       - MONGODB_REPLICA_SET_NAME=shard01
 
   mongodb-config:
-    image: "bitnami/mongodb-sharded:6.0.13"
+    image: "bitnami/mongodb-sharded:6.0.14"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=mongodb-config
       - MONGODB_SHARDING_MODE=configsvr
